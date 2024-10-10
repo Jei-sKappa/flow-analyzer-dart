@@ -1,0 +1,15 @@
+name: flow_analyzer
+description: A lightweight Dart library designed to help you track, measure, and visualize the performance of operations in your codebase.
+version: 0.1.0
+repository: https://github.com/Jei-sKappa/flow-analyzer-dart
+issue_tracker: https://github.com/Jei-sKappa/flow-analyzer-dart/issues
+documentation: https://github.com/Jei-sKappa/flow-analyzer-dart
+topics: [ benchmark, benchmarking, performance, analytics ]
+
+environment:
+  sdk: ^3.4.4
+
+dependencies:
+
+dev_dependencies:
+  lints: ^3.0.0
