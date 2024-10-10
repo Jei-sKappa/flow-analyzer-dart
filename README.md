@@ -1,5 +1,6 @@
 # Flow Analyzer - Track & Measure Execution Flows in Dart
 
+[![Dart CI](https://github.com/Jei-sKappa/flow-analyzer-dart/actions/workflows/ci.yml/badge.svg)](https://github.com/Jei-sKappa/flow-analyzer-dart/actions/workflows/ci.yml)
 [![pub package](https://img.shields.io/pub/v/flow_analyzer.svg)](https://pub.dev/packages/flow_analyzer)
 ![pub points](https://img.shields.io/pub/points/flow_analyzer)
 ![pub Popularity](https://img.shields.io/pub/popularity/flow_analyzer)
