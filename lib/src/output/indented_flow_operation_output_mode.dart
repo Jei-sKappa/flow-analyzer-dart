@@ -4,12 +4,10 @@ import 'package:flow_analyzer/src/extensions/extensions.dart';
 import 'package:flow_analyzer/src/output/output.dart';
 import 'package:flow_analyzer/src/flow_analyzer.dart';
 
+/// The [IndentedFlowOperationOutputMode] class is responsible for outputting
+/// the results of a [FlowOperation] to the console in an indented format.
 class IndentedFlowOperationOutputMode implements FlowOperationOutputMode {
-  final int indent;
-  final Duration? threshold;
-  final bool showFileStartLocation;
-  final bool showFileEndLocation;
-
+  /// Creates an instance of [IndentedFlowOperationOutputMode].
   const IndentedFlowOperationOutputMode({
     this.indent = 2,
     this.threshold,
@@ -17,9 +15,31 @@ class IndentedFlowOperationOutputMode implements FlowOperationOutputMode {
     this.showFileEndLocation = false,
   });
 
+  /// The number of spaces to indent nested operations. Defaults to `2`.
+  final int indent;
+
+  /// The minimum time threshold for an operation to be displayed. Defaults to
+  /// `null`.
+  final Duration? threshold;
+
+  /// Whether to display the file location, line, and column where the operation
+  /// started. Defaults to `true`
+  final bool showFileStartLocation;
+
+  /// Whether to display the file location, line, and column where the operation
+  /// ended. Defaults to `false`
+  final bool showFileEndLocation;
+
+  /// Checks if the duration of the given [FlowOperation] is below a specified threshold.
+  ///
+  /// Returns `true` if the [threshold] is not `null` and the duration of the [op]
+  /// is less than the [threshold], otherwise returns `false`.
+  ///
+  /// - Parameter [op]: The [FlowOperation] whose duration is to be checked.
   bool isBelowThreshold(FlowOperation op) =>
       threshold != null && op.getOperationDuration() < threshold!;
 
+  /// Outputs the [op] to the console in an indented format.
   @override
   void output(FlowOperation op) {
     if (isBelowThreshold(op)) return;

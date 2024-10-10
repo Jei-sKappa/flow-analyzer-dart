@@ -1,4 +1,4 @@
-// TODO: Add a description of the library.
+/// A lightweight Dart library designed to help you track, measure, and visualize the performance of operations in your codebase.
 library flow_analyzer;
 
 export 'src/flow_analyzer.dart';

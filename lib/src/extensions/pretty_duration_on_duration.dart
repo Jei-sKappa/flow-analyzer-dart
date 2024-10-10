@@ -1,8 +1,18 @@
+/// The format to use when pretty printing a duration.
 enum PrettyFormat {
+  /// Includes hours, minutes, seconds, milliseconds, and microseconds.
   fromHours,
+
+  /// Includes minutes, seconds, milliseconds, and microseconds.
   fromMinutes,
+
+  /// Includes seconds, milliseconds, and microseconds.
   fromSeconds,
+
+  /// Includes milliseconds and microseconds.
   fromMilliseconds,
+
+  /// Includes only microseconds.
   fromMicroseconds;
 
   /// Converts a [Duration] object into a [PrettyFormat] based on the largest
@@ -10,10 +20,14 @@ enum PrettyFormat {
   /// hours, minutes, seconds, milliseconds, and microseconds.
   ///
   /// - If the duration has hours, it returns [PrettyFormat.fromHours].
-  /// - If the duration has minutes but no hours, it returns [PrettyFormat.fromMinutes].
-  /// - If the duration has seconds but no minutes or hours, it returns [PrettyFormat.fromSeconds].
-  /// - If the duration has milliseconds but no seconds, minutes, or hours, it returns [PrettyFormat.fromMilliseconds].
-  /// - If the duration has only microseconds, it returns [PrettyFormat.fromMicroseconds].
+  /// - If the duration has minutes but no hours, it returns
+  /// [PrettyFormat.fromMinutes].
+  /// - If the duration has seconds but no minutes or hours, it returns
+  /// [PrettyFormat.fromSeconds].
+  /// - If the duration has milliseconds but no seconds, minutes, or hours, it
+  /// returns [PrettyFormat.fromMilliseconds].
+  /// - If the duration has only microseconds, it returns
+  /// [PrettyFormat.fromMicroseconds].
   ///
   /// Example:
   /// ```dart
@@ -29,6 +43,12 @@ enum PrettyFormat {
     return PrettyFormat.fromMicroseconds;
   }
 
+  /// Returns the length of the formatted duration string based on the
+  /// `PrettyFormat` type. The length is calculated by summing the
+  /// number of characters required for each component of the duration
+  /// (e.g., hours, minutes, seconds, etc.) and the separators between them.
+  ///
+  /// Returns the total length of the formatted duration string.
   int getLenght() {
     switch (this) {
       case PrettyFormat.fromHours:
@@ -45,12 +65,18 @@ enum PrettyFormat {
   }
 }
 
+/// Extension that provides a pretty formatted string representation of a
+/// [Duration] object.
 extension PrettyDuration on Duration {
   String _twoDigits(int n) => n.toString().padLeft(2);
   String _threeDigits(int n) => n.toString().padLeft(3);
 
+  /// Returns a pretty formatted string representation of the duration.
   String get pretty => prettyFrom(PrettyFormat.fromDuration(this));
 
+  /// Returns a pretty formatted string representation of the duration.
+  ///
+  /// The format is based on the provided [PrettyFormat].
   String prettyFrom(PrettyFormat format) {
     String negativeSign = isNegative ? '-' : '';
 
