@@ -317,4 +317,4 @@ For more updates and news, follow the repository and give us a ⭐️ if you fin
 
 ---
 
-Made with ❤️ by [Jei-Kappa](https://github.com/Jei-sKappa)
+Made with ❤️ by [Jei-sKappa](https://github.com/Jei-sKappa)
